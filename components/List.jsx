@@ -2,7 +2,18 @@ import { Flex, Box, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 import React from 'react'
 import PlaceDetail from './PlaceDetail';
 
-const List = ({places, isLoading}) => {
+const List = ({ places, isLoading, searchInput }) => {
+  let filteredAndSortedPlaces = [];
+  console.log("searchInput",searchInput)
+  if (searchInput && places) {
+    filteredAndSortedPlaces = places
+      .filter(place =>
+        place.name.toLowerCase().includes(searchInput.toLowerCase())
+      )
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+
   if(isLoading)
   return (
   <Flex
@@ -55,12 +66,16 @@ const List = ({places, isLoading}) => {
     
     >
       <Flex flex={1} overflow={'scroll'} mt={16} direction={'column'}>
-    {
-      places && places.map((place, i)=> <PlaceDetail place={place} key={i} />)
-    }
+      {places && searchInput
+          ? filteredAndSortedPlaces.map((place, i) => (
+              <PlaceDetail place={place} key={i} />
+            ))
+          : places && places.map((place, i) => (
+              <PlaceDetail place={place} key={i} />
+            ))}
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
 export default List

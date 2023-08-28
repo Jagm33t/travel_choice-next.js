@@ -14,17 +14,23 @@ import Stroke from 'ol/style/Stroke';
 import VectorLayer from 'ol/layer/Vector';
 import 'ol/ol.css';
 import Overlay from 'ol/overlay';
-import { closestOnCircle } from 'ol/coordinate';
+
 
 const MapComponent = ({ coordinates, setBounds, places }) => {
-  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [_selectedPlace, setSelectedPlace] = useState(null);
   const popupRef = useRef(null);
-  const [popContent, setPopContent] = useState('');
+  const [_popContent, setPopContent] = useState('');
   const mapAndVectorLayerRef = useRef({ map: null, vectorLayer: null, popup:null });
 
   const [vectorLayerAdded, setVectorLayerAdded] = useState(false);
   const vectorSourceRef = useRef(null);
 
+  const closePopup = () => {
+    const { popup } = mapAndVectorLayerRef.current;
+    popup.setPosition(undefined);
+    setSelectedPlace(null);
+    setPopContent('');
+  };
 
 
   useEffect(() => {
@@ -40,7 +46,7 @@ const MapComponent = ({ coordinates, setBounds, places }) => {
       view: new View({
         projection: 'EPSG:4326',
         center: [coordinates.lng, coordinates.lat],
-        zoom: 15,
+        zoom: 13,
       }),
     });
 
@@ -81,7 +87,31 @@ const MapComponent = ({ coordinates, setBounds, places }) => {
       }),
     });
 
+ const blueDotFeature = new Feature({
+    geometry: new Point([coordinates.lng, coordinates.lat]),
+  });
 
+  // Create a vector source for the blue dot
+  const blueDotVectorSource = new VectorSource({
+    features: [blueDotFeature],
+  });
+
+  // Create a vector layer for the blue dot
+  const blueDotVectorLayer = new VectorLayer({
+    source: blueDotVectorSource,
+    style: new Style({
+      image: new CircleStyle({
+        radius: 6,
+        fill: new Fill({ color: '#4989f3' }), // Blue color
+        stroke: new Stroke({
+          width: 3,
+        }),
+      }),
+    }),
+  });
+
+  // Add the blue dot vector layer to the map
+  map.addLayer(blueDotVectorLayer);
     const popup = new Overlay({
       element: popupRef.current,
       autoPan: true,
@@ -133,7 +163,7 @@ const MapComponent = ({ coordinates, setBounds, places }) => {
       
           const content = `
           <div>
-            <img style="width: full" src="${
+            <img style="width: 100%" src="${
               clickedPlace.photo
                 ? clickedPlace.photo.images.small.url
                 : "https://explorelompoc.com/wp-content/uploads/2021/06/food_placeholder.jpg"
@@ -153,7 +183,10 @@ const MapComponent = ({ coordinates, setBounds, places }) => {
               ? `<p style="font-size: 12px; color: green">${clickedPlace.open_now_text}</p>`
               : ""
           }
-         
+          ${clickedPlace.website
+            ? `<p style="font-size: 12px; color: blue">${clickedPlace.website}</p>`
+            : ""
+        }
           </div>
         `;
         const { popup} = mapAndVectorLayerRef.current;
@@ -233,10 +266,19 @@ const buttonStyle = {
     borderRadius: '5px',
     whiteSpace: 'wrap',
     height: 'auto',
-    width: '200px',
+    width: '250px',
     zIndex: 100,
+    cursor: 'pointer',
   };
-
+  const popupCloseStyle = {
+    position: 'absolute',
+    top: '1px',
+    right: '2px',
+    fontSize: '20px',
+    cursor: 'pointer',
+    color: 'red',
+  };
+  
 
   return (
     <Box width="full" position="relative">
@@ -246,7 +288,9 @@ const buttonStyle = {
         </button>
       </div>
       <div ref={popupRef} id="popup" className="ol-popup" style={popupStyle}>
-        <a href="#" id="popup-closer" className="ol-popup-closer"></a>
+        <a href="#" id="popup-closer" className="ol-popup-closer"onClick={closePopup} style={popupCloseStyle}>
+          &#10005; {/* Unicode code for the 'times' (cross) symbol */}
+        </a>
         <div id="popup-content" className="popup-content"></div>
       </div>
     </Box>

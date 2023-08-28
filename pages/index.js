@@ -2,7 +2,6 @@ import { Flex } from "@chakra-ui/react";
 import Header from "@/components/Header";
 import List from "@/components/List";
 import Map from "@/components/Map";
-import PlaceDetail from "@/components/PlaceDetail";
 import React, { useEffect, useState } from 'react';
 import { getPlacesData } from "./api";
 
@@ -17,7 +16,8 @@ const Home = () => {
   const [bounds, setBounds] = useState(null);
   const [filteredPlaces, setFilteredPlaces] = useState([]);
 
-
+  const [searchInput, setSearchInput] = useState('');
+  
   useEffect(()=> {
 
     navigator.geolocation.getCurrentPosition(({coords :{latitude,longitude}})=>{
@@ -57,6 +57,8 @@ const Home = () => {
       setType={setType}
       setRatings={setRatings}
       setCoordinates={setCoordinates} 
+      searchInput={searchInput}
+        setSearchInput={setSearchInput}
       />
       <Map coordinates={coordinates}
        setCoordinates={setCoordinates}
@@ -66,6 +68,7 @@ const Home = () => {
        <List
         places={filteredPlaces.length ? filteredPlaces : places}
         isLoading={isLoading}
+        searchInput={searchInput}
       />
       
     

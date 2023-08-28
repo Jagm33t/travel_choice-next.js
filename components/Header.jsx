@@ -4,7 +4,10 @@ import { BiSearch, BiStar, BiChevronDown, BiRestaurant, BiHotel, BiMapAlt } from
 import { Rating } from '@material-ui/lab';
 
 
-const Header = ({ setType, setRatings, setCoordinates }) => {
+const Header = ({ setType, setRatings, searchInput, setSearchInput }) => {
+  const handleSearchInputChange = event => {
+    setSearchInput(event.target.value);
+  };
   return (
     <Flex position={"absolute" }
     top={0} left={0} 
@@ -19,6 +22,8 @@ const Header = ({ setType, setRatings, setCoordinates }) => {
           <Input 
           type={'text'}
           placeholder = 'Search here...'
+          value={searchInput}
+         onChange={handleSearchInputChange}
           variant={'filled'}
           fontSize={18}
           bg={'white'}
