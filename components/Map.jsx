@@ -135,7 +135,7 @@ const MapComponent = ({ coordinates, setBounds, places }) => {
     
   }, [coordinates, setBounds]);
 
-  const { map, vectorLayer } = mapAndVectorLayerRef.current;
+  const { map } = mapAndVectorLayerRef.current;
   if(map){
   map.on('click', event => {
         
