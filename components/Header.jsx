@@ -3,7 +3,6 @@ import { Flex, Text, Input, InputGroup, InputRightElement,Menu, MenuButton, Menu
 import { BiSearch, BiStar, BiChevronDown, BiRestaurant, BiHotel, BiMapAlt } from 'react-icons/bi';
 import { Rating } from '@material-ui/lab';
 
-
 const Header = ({ setType, setRatings, searchInput, setSearchInput }) => {
   const handleSearchInputChange = event => {
     setSearchInput(event.target.value);

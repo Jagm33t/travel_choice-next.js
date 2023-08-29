@@ -1,6 +1,6 @@
 import { Badge, Flex, Image, Text } from "@chakra-ui/react";
 import { Rating } from "@material-ui/lab";
-// import { LocationOn, Phone } from "@material-ui/icons";
+
 import React from "react";
 
 import { IoLocation } from "react-icons/io5";

@@ -12,7 +12,6 @@ import CircleStyle from 'ol/style/Circle';
 import Fill from 'ol/style/Fill';
 import Stroke from 'ol/style/Stroke';
 import VectorLayer from 'ol/layer/Vector';
-
 import Overlay from 'ol/overlay';
 
 
