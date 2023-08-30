@@ -1,14 +1,23 @@
-// next.config.js
 module.exports = {
   reactStrictMode: true,
   webpack: (config) => {
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        'css-loader'
-      ],
-    });
+    config.module.rules.push(
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ],
+      }
+    );
     return config;
   },
 };

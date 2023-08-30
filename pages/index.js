@@ -4,6 +4,7 @@ import List from "@/components/List";
 import Map from "@/components/Map";
 import React, { useEffect, useState } from 'react';
 import { getPlacesData } from "./api";
+import * as sass from 'sass';
 
 
 
