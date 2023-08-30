@@ -28,6 +28,7 @@
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/ol": "^7.0.0",
     "css-loader": "^6.8.1",
     "node-sass": "^9.0.0",
