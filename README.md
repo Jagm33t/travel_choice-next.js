@@ -20,10 +20,12 @@ Let's make your next trip unforgettable! Travel Choice has everything you need.
 
 - Next.js
 - OpenLayers
+- Geolocation
 - HTML
 - JavaScript
 - Chakra UI
 - React Icons
+- Rest Api
 
 ## Installation
 
