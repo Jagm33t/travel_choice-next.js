@@ -1,7 +1,20 @@
 
-# Travel Choice
+# Welcome to Travel Choice 🌍
+Travel Choice is your ultimate travel companion! Explore the world with ease, whether you're an adventurer or a local in search of great experiences.
 
-Travel Choice is a web application built with Next.js that uses external APIs for information retrieval and OpenLayers for maps integration.
+What Travel Choice Offers:
+
+🗺️ Interactive Maps:Find nearby restaurants, hotels, and attractions.
+
+🍽️ Food Exploration: Discover the best dining spots in your area.
+
+🏨 Accommodation Options: Find the perfect place to stay nearby.
+
+🏙️ City Exploration: Uncover local attractions and hidden gems.
+
+🌟 Comprehensive Information: Get ratings, location details, websites, and more for informed travel decisions.
+
+Let's make your next trip unforgettable! Travel Choice has everything you need.
 
 ## Technologies Used
 
