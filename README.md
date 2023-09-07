@@ -35,6 +35,11 @@ To run this project locally, follow these steps:
 2. Install the dependencies using `npm install`.
 3. Start the development server with `npm run dev`.
 
+## Video
+
+
+https://github.com/Jagm33t/travel_choice-next.js/assets/130860323/9956aa04-779a-4ed1-81a2-ccf7998bc001
+
 
 
 
