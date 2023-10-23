@@ -4,7 +4,7 @@ import List from "@/components/List";
 import Map from "@/components/Map";
 import React, { useEffect, useState } from 'react';
 import { getPlacesData } from "./api";
-import * as sass from 'sass';
+// import * as sass from 'sass';
 
 
 
@@ -27,11 +27,7 @@ const Home = () => {
     })
   }, [])
 
-  useEffect(() => {
-    const filteredData = places.filter((place) => place.rating > ratings);
-    setFilteredPlaces(filteredData);
-    console.log({ ratings });
-  }, [ratings]);
+ 
 
   useEffect(()=>{
     setIsLoading(true)
@@ -43,6 +39,12 @@ const Home = () => {
 
 })
   },[type, coordinates,bounds])
+
+  useEffect(() => {
+    const filteredData = places.filter((place) => place.rating > ratings);
+    setFilteredPlaces(filteredData);
+    console.log({ ratings });
+  }, [ratings]);
 
   return (
     <Flex
