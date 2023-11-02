@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Text, Input, InputGroup, InputRightElement,Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BiSearch, BiStar, BiChevronDown, BiRestaurant, BiHotel, BiMapAlt } from 'react-icons/bi';
-import { Rating } from '@material-ui/lab';
+import Rating from 'react-rating';
 
 const Header = ({ setType, setRatings, searchInput, setSearchInput }) => {
   const handleSearchInputChange = event => {
