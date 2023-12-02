@@ -1,5 +1,5 @@
 import { Badge, Flex, Image, Text } from "@chakra-ui/react";
-import Rating from 'react-rating';
+import { Rating } from 'semantic-ui-react'
 
 import React from "react";
 
