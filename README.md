@@ -1,22 +1,56 @@
+# **Travel Choice**
 
-# Welcome to Travel Choice 🌍
-Travel Choice is your ultimate travel companion! Explore the world with ease, whether you're an adventurer or a local in search of great experiences.
+Travel Choice is a travel web application developed using Next.js, React, and OpenLayers to create an interactive map-based travel advisor platform. The application integrates various technologies to provide users with location-based recommendations for restaurants, hotels, and attractions.
 
-Live Link - https://travelchoice.netlify.app/
+**Live Link:** [Travel Choice](https://travelchoice.netlify.app/)
 
-What Travel Choice Offers:
+## **How Everything is Performed**
 
-🗺️ Interactive Maps:Find nearby restaurants, hotels, and attractions.
+### **Map Initialization and User Location**
+**Libraries Used:** OpenLayers, Axios, Chakra UI, Semantic UI React.  
+**Functionality:**
+- Initializes a map with OpenLayers, setting up layers for points of interest.
+- Fetches the user's location using the Geolocation API to center the map.
+- Tracks map coordinates (latitude and longitude) as the user navigates.
 
-🍽️ Food Exploration: Discover the best dining spots in your area.
+### **Fetching and Displaying Data**
+**API Integration:**
+- `getPlacesData` function makes asynchronous calls to the Travel Advisor API with Axios, using current map bounds to fetch relevant data.
+- Data fetching is triggered by changes in map bounds, user location, or selected place type.
 
-🏨 Accommodation Options: Find the perfect place to stay nearby.
+**Data Handling:**
+- Stores fetched data in state variables using React's `useState`.
+- Data includes place details like name, rating, location, and type.
 
-🏙️ City Exploration: Uncover local attractions and hidden gems.
+**UI Rendering:**
+- Uses Chakra UI and Semantic UI React for styling and layout.
+- Displays places in a `<List />` component and markers on a `<Map />` component.
+- `<Header />` component includes search functionality and filters.
 
-🌟 Comprehensive Information: Get ratings, location details, websites, and more for informed travel decisions.
+### **Filtering and Searching**
+**Filtering:**
+- Allows users to filter places by ratings, implemented with a `useEffect` hook.
 
-Let's make your next trip unforgettable! Travel Choice has everything you need.
+**Search:**
+- Manages search input state with React hooks, dynamically updating the displayed places.
+
+### **Asynchronous Data Handling**
+**Promises and Async/Await:**
+- Handles data fetching asynchronously with promises and async/await syntax for smooth, non-blocking operations.
+- Implements error handling for API calls to manage potential issues.
+
+## **Lessons Learned**
+- **API Integration:** Gained experience in integrating third-party APIs and handling asynchronous data fetching with Axios.
+- **State Management:** Improved skills in managing application state using React hooks like `useState` and `useEffect`.
+- **UI/UX Design:** Enhanced ability to design and implement responsive, user-friendly interfaces using Chakra UI and Semantic UI React.
+- **Geolocation and Mapping:** Learned to work with geolocation services and map libraries such as OpenLayers to create interactive map-based applications.
+
+## **Hard Parts**
+- **API Rate Limits:** Managing rate limits imposed by third-party APIs and implementing error handling for failed requests.
+- **Complex State Management:** Handling complex state updates and ensuring the application remains responsive and performant.
+- **Map Rendering:** Ensuring smooth and accurate rendering of map layers and markers as the user navigates and interacts with the map.
+- **Asynchronous Data Handling:** The most challenging part was handling asynchronous data, where the application needed to record screen coordinates using OpenLayers, store them, send them to make API requests, and log back the results while effectively handling errors.
+
 
 ## Technologies Used
 
