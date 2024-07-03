@@ -4,6 +4,19 @@ Travel Choice is a travel web application developed using Next.js, React, and Op
 
 **Live Link:** [Travel Choice](https://travelchoice.netlify.app/)
 
+## **Lessons Learned**
+- **API Integration:** Gained experience in integrating third-party APIs and handling asynchronous data fetching with Axios.
+- **State Management:** Improved skills in managing application state using React hooks like `useState` and `useEffect`.
+- **UI/UX Design:** Enhanced ability to design and implement responsive, user-friendly interfaces using Chakra UI and Semantic UI React.
+- **Geolocation and Mapping:** Learned to work with geolocation services and map libraries such as OpenLayers to create interactive map-based applications.
+
+## **Hard Parts**
+- **API Rate Limits:** Managing rate limits imposed by third-party APIs and implementing error handling for failed requests.
+- **Complex State Management:** Handling complex state updates and ensuring the application remains responsive and performant.
+- **Map Rendering:** Ensuring smooth and accurate rendering of map layers and markers as the user navigates and interacts with the map.
+- **Asynchronous Data Handling:** The most challenging part was handling asynchronous data, where the application needed to record screen coordinates using OpenLayers, store them, send them to make API requests, and log back the results while effectively handling errors.
+
+
 ## **How Everything is Performed**
 
 ### **Map Initialization and User Location**
@@ -39,17 +52,6 @@ Travel Choice is a travel web application developed using Next.js, React, and Op
 - Handles data fetching asynchronously with promises and async/await syntax for smooth, non-blocking operations.
 - Implements error handling for API calls to manage potential issues.
 
-## **Lessons Learned**
-- **API Integration:** Gained experience in integrating third-party APIs and handling asynchronous data fetching with Axios.
-- **State Management:** Improved skills in managing application state using React hooks like `useState` and `useEffect`.
-- **UI/UX Design:** Enhanced ability to design and implement responsive, user-friendly interfaces using Chakra UI and Semantic UI React.
-- **Geolocation and Mapping:** Learned to work with geolocation services and map libraries such as OpenLayers to create interactive map-based applications.
-
-## **Hard Parts**
-- **API Rate Limits:** Managing rate limits imposed by third-party APIs and implementing error handling for failed requests.
-- **Complex State Management:** Handling complex state updates and ensuring the application remains responsive and performant.
-- **Map Rendering:** Ensuring smooth and accurate rendering of map layers and markers as the user navigates and interacts with the map.
-- **Asynchronous Data Handling:** The most challenging part was handling asynchronous data, where the application needed to record screen coordinates using OpenLayers, store them, send them to make API requests, and log back the results while effectively handling errors.
 
 
 ## Technologies Used
